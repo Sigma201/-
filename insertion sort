@@ -1,0 +1,24 @@
+addi a3, a0, 4
+addi a4, x0, 1
+Outher Loop:
+	a4, a1, 10
+Exit Outher Loop:
+	jalr x0, x1, 0
+Continue Outher Loop:
+	lw a6, 0(a3)
+	addi a2, a3, 0
+	addi a5, a4, 0
+Inner Loop:
+	lw a7, -4(a2)
+	bge a6, a7, 34
+	a7, 0(a2)
+	addi a5, a5, -1
+	addi a2, a2, -4
+	bne a5, x0, 1c
+Exit Inner Loop:
+	slli a5, a5, 0x2
+	add a5, a0, a5
+	sw a6, 0(a5)
+	addi a4, a4, 1
+	addi a3, a3, 4
+	jal x0, 8
